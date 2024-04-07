@@ -1,0 +1,73 @@
+
+[build-system]
+requires = ["setuptools>=61", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fre-based-gripper"
+version = "0.0.1"
+description = "Analytical modeling of FRE based gripper"
+readme = { file = "README.md", content-type = "text/markdown" }
+requires-python = ">=3.8"
+license = { file = "LICENSE" }
+keywords = ["FRE", "analytical", "modeling", "gripper"]
+authors = [
+    { name = "Paula Elisabeth Kasten Hervas", email = "paula.elikh@gmail.com" }
+]
+maintainers = [
+    { name = "Paula Elisabeth Kasten Hervas", email = "paula.elikh@gmail.com"  }
+]
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Typing :: Typed"
+]
+dependencies = [
+    "numpy"
+]
+
+[project.urls]
+Homepage = "https://github.com/patulapatata/fre-based-gripper"
+Repository = "https://github.com/patulapatata/fre-based-gripper"
+
+[project.optional-dependencies]
+dev = [
+    "coverage >=7",
+    "isort >=5",
+    "pandas-stubs",
+    "pylint >=3",
+    "pytest >=7",
+    "tox >=3"
+]
+conda = [
+    "tox-conda"
+]
+
+
+[tool.setuptools.packages.find]
+namespaces = false
+# where = ["src"]
+
+# no build config after this line
+
+[tool.coverage.report]
+omit = ["tests/*"]
+
+[tool.isort]
+verbose = true
+
+[tool.pylint.main]
+fail-on = "F, E, W"
+fail-under = 8
+
+[tool.pylint.format]
+max-line-length = 120
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
