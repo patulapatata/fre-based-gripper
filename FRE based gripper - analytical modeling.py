@@ -55,19 +55,19 @@ def stiffness_matrix(h,d, t,cb_t,phi, den,E):
     p = h_subst/wall_thickness
 
     # factor to account for density
-    a_i = 1+den
+    u_i = 1+den
 
     # factor to account for angle
-    b_i = (1-phi/100)
-    print(a_i)
-    print(b_i)
+    v_i = (1-phi/100)
+    print(u_i)
+    print(v_i)
 
     # vertical stiffness (z-direction)
-    #if den >= 0.2:
-        #k_zz = (E*A)/(h_subst*p)*a_i*b_i*(1+den)
+    if den >= 0.2:
+        k_zz = (E*A)/(h_subst*p)*u_i
 
     #else:
-    k_zz = (E * A) / (h_subst * p) * a_i * b_i
+    k_zz = (E * A) / (h_subst * p) * u_i * v_i
 
     stiffness_matrix = np.array([[k_yy, 0], [0, k_zz]])
 
